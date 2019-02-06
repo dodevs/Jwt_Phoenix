@@ -20,7 +20,7 @@ defmodule JwtApp.MixProject do
   def application do
     [
       mod: {JwtApp.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :ueberauth]
     ]
   end
 

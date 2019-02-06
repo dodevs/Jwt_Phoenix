@@ -29,7 +29,7 @@ config :phoenix, :json_library, Jason
 config :ueberauth, Ueberauth,
   base_path: "/api/auth",
   providers: [
-    identity: {Ueberauth.Strategy.HelpersIdentity, [
+    identity: {Ueberauth.Strategy.Identity, [
       callback_methods: ["POST"],
       nickname_field: :username,
       param_nesting: "user",
