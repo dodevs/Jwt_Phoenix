@@ -1,4 +1,4 @@
-defmodule AuthAccessPipeline do
+defmodule JwtAppWeb.Plug.AuthAccessPipeline do 
   use Guardian.Plug.Pipeline, otp_app: :rest_jwt
 
   plug Guardian.Plug.VerifySession, claims: %{"typ" => "access"}

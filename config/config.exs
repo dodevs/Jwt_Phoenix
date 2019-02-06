@@ -46,6 +46,10 @@ config :rest_jwt, JwtApp.Guardian,
     default: [:read_users, :write_users]
   }
 
+config :rest_jwt, JwtAppWeb.Plug.AuthAccessPipeline,
+  module: JwtApp.Guardian,
+  error_handler: JwtAppWeb.Plug.AuthErrorPipeline
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
