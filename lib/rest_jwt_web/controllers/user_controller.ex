@@ -6,6 +6,9 @@ defmodule JwtAppWeb.UserController do
 
   action_fallback JwtAppWeb.FallbackController
 
+  plug Guardian.Permissions.Bitwise, ensure: %{default: [:read_users]}
+  plug Guardian.Permissions.Bitwise, [ensure: %{default: [:write_users]}] when action in [:create, :update, :delete]
+
   def index(conn, _params) do
     users = Accounts.list_users()
     render(conn, "index.json", users: users)

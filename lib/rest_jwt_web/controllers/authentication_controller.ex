@@ -15,7 +15,7 @@ defmodule JwtAppWeb.AuthenticationController do
     case user do
       {:ok, user} ->
         {:ok, jwt, _full_claims} =
-          JwtApp.Guardian.encode_and_sign(user, %{})
+          JwtApp.Guardian.encode_and_sign(user, %{}, permissions: user.permissions)
 
         conn
         |> put_resp_header("authorization", "Bearer #{jwt}")
